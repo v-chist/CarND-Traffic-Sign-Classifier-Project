@@ -125,7 +125,7 @@ To train the model, I used the following hyperparameters:
 
 Type of optimizer: AdamOptimizer 
 
-Number of epochs = 10
+Number of epochs = 9
 
 Batch size = 128
 
@@ -140,8 +140,8 @@ Parameters used for initial weights in LeNet function:
 #### 4. Describe the approach taken for finding a solution and getting the validation set accuracy to be at least 0.93. Include in the discussion the results on the training, validation and test sets and where in the code these were calculated. Your approach may have been an iterative process, in which case, outline the steps you took to get to the final solution and why you chose those steps. Perhaps your solution involved an already well known implementation or architecture. In this case, discuss why you think the architecture is suitable for the current problem.
 
 My final model results were:
-* validation set accuracy of 0.931 
-* test set accuracy of 0.914
+* validation set accuracy of 0.935 
+* test set accuracy of 0.927
 
 First architecture that was chosen was Lenet architecture since it is widely used for analysis and classification of images.
 
@@ -164,54 +164,54 @@ The "speed limit 70" image may be hard to classify because there are many differ
 
 #### 2. Discuss the model's predictions on these new traffic signs and compare the results to predicting on the test set. At a minimum, discuss what the predictions were, the accuracy on these new predictions, and compare the accuracy to the accuracy on the test set.
 
-Model was correct for all of the traffic signs (accuracy 100%). However for "speed limit 70" it was very close to make a mistake and consider it "speed limit 30". This approximately matches with the accuracy 0.913 on the test set.
+Model was correct for all of the traffic signs (accuracy 100%). However for "speed limit 70" it was very close to make a mistake and consider it "speed limit 30". This approximately matches with the accuracy 0.927 on the test set.
 
 #### 3. Describe how certain the model is when predicting on each of the five new images by looking at the softmax probabilities for each prediction. Provide the top 5 softmax probabilities for each image along with the sign type of each probability. 
 
-Prediction was successful for all images, but the most difficult for prediction were "speed limit 70" and "children crossing". For "speed limit 70" network was very close to consider it "speed limit 30" and for "children crossing" network has ~40% probability for the correct answer and 20% probability for "beware of ice/snow" sign.
+Prediction was successful for all images, softmax probability is close to 1 for the correct answer for all images. Most probably it is caused by quite good quality of the images taken from the web. The most difficult sign to classify: "speed limit 70"
 
-
+Softmax probabilities:
 
 Top 5 predictions for **"speed limit 70"**:
 
-    1) Speed limit 70				 Probability: 28.94046593
-    2) Speed limit 30				 Probability: 27.22708511
-    3) Speed limit 20				 Probability: 24.824543
-    4) Speed limit 120				 Probability: 9.35268974
-    5) Speed limit 100				 Probability: 5.10242605
+    1) Speed limit 70				 Probability: 0.973
+    2) Speed limit 20				 Probability: 0.027
+    3) Speed limit 30				 Probability: ~1e-06
+    4) General caution				 Probability: ~1e-10
+    5) Speed limit 120				 Probability: ~1e-11
     
 Top 5 predictions for **"straight ahead":**
 
-    1) Straignt ahead				 Probability: 79.01501465
-    2) Roundabout mandatory			 Probability: 36.46518326
-    3) Go straight or right			 Probability: 26.15068626
-    4) Turn right ahead				 Probability: 24.51254463
-    5) End of no passing			 Probability: 23.76437378
+    1) Straignt ahead				 Probability: 1
+    2) Go straight or right			 Probability: ~1.e-12
+    3) Turn left ahead			 	 Probability: ~1.e-13
+    4) Turn right ahead				 Probability: ~1.e-14
+    5) Go straight or left			 Probability: ~1.e-16
     
 Top 5 predictions for **"general caution"**:
 
-    1) General caution							 Probability: 53.14277267
-    2) Right-of-way at the next intersection	 Probability: 16.81989861
-    3) Traffic signals							 Probability: 15.71035576
-    4) Pedestrians								 Probability: 14.37226963
-    5) speed limit 70							 Probability: 8.5656786
+    1) General caution							 Probability: 1
+    2) Pedestrians 								 Probability: ~1.e-9
+    3) Traffic signals							 Probability: ~1.e-13
+    4) Right-of-way at the next intersection	 Probability: ~1.e-15
+    5) Road narrows on the right				 Probability: ~1.e-17
     
 Top 5 predictions for **"yield"**:
 
-    1) Yield						 Probability: 63.01762772
-    2) Keep right					 Probability: 12.94537926
-    3) No vehicles					 Probability: 11.98474884
-    4) Ahead only					 Probability: 7.75268936
-    5) Stop							 Probability: 6.49108744
+    1) Yield						 				Probability: 1
+    2) Double curve					 				Probability: ~1.e-11
+    3) Road work					 				Probability: ~1.e-12
+    4) Speed limit (50km/h)			 				Probability: ~1.e-14
+    5) No passing for vehicles over 3.5 metric tons	Probability: ~1.e-14
  
     
 Top 5 predictions for **"children crossing"**:
 
-    1) Children crossing			 Probability: 40.64864349
-    2) Beware of ice/snow			 Probability: 23.76899147
-    3) Dangerous curve to the right	 Probability: 13.59075642
-    4) Slippery road				 Probability: 12.18630886
-    5) Road work					 Probability: 6.45866108
+    1) Children crossing			 Probability: 1
+    2) Dangerous curve to the right	 Probability: ~1.e-6
+    3) Beware of ice/snow 			 Probability: ~1.e-8
+    4) Road narrows on the right	 Probability: ~1.e-8
+    5) Speed limit (120km/h)		 Probability: ~1.e-8
 
 
 
